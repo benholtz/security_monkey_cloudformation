@@ -571,8 +571,8 @@
 									"Ref": "RDSDBName"
 								},
 								"/g' /usr/local/src/security_monkey/env-config/config-deploy.py\n",
-								"export INSTANCE_NAME=$(curl -s http://169.254.169.254/latest/meta-data/local-hostname)\n",
-								"sudo sed -i s/ec2-XX-XXX-XXX-XXX.compute-1.amazonaws.com/$INSTANCE_NAME/g /usr/local/src/security_monkey/env-config/config-deploy.py\n",
+								"export INSTANCE_PUBLIC_HOST_NAME=$(curl -s http://169.254.169.254/latest/meta-data/public-hostname)\n",
+								"sudo sed -i s/ec2-XX-XXX-XXX-XXX.compute-1.amazonaws.com/$INSTANCE_PUBLIC_HOST_NAME/g /usr/local/src/security_monkey/env-config/config-deploy.py\n",
 								"export RANDOM_KEY=$(date +%s | sha256sum | base64 | head -c 32)\n",
 								"sudo sed -i s/\\<INSERT_RANDOM_STRING_HERE\\>/$RANDOM_KEY/g /usr/local/src/security_monkey/env-config/config-deploy.py\n",
 								"sudo sed -i 's/DEBUG/", { "Ref": "SMLogLevel" }, "/g' /usr/local/src/security_monkey/env-config/config-deploy.py\n",
@@ -644,11 +644,11 @@
   },
 	"Outputs": {
       "SecurityMonkeyInformation": {
-        "Description": "For SSH access jump to the SecurityMonkey EC2 instance using your provided key and with user ubuntu.",
+        "Description": "For SSH access jump to the SecurityMonkey EC2 instance using your provided key and with user ubuntu and follow the after installation steps, for web access go to the server name with HTTPS.",
           "Value": {
 						"Fn::GetAtt": [
 							"SecurityMonkeyServer",
-							"PublicIp"
+							"PublicDnsName"
 						]
 				}
       },

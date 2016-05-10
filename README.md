@@ -50,16 +50,30 @@ To customize the security profile of your stack, also override the default value
 ## After deployment steps
 
 - SSH to your Security Monkey Server and add your admin user using the Security Monkey manage.py tool.
+```bash
+ssh -i yourkey.pem ubuntu@PUBLIC_IP
+```
 - Add an admin user to Security Monkey:
 ```bash
 export SECURITY_MONKEY_SETTINGS=/usr/local/src/security_monkey/env-config/config-deploy.py
 cd /usr/local/src/security_monkey
-python manage.py create_user user@example.com Admin
+python manage.py create_user you@example.com Admin
 ```
-- Add your first AWS account (this can also be done throug the web app):
+- Add your first AWS account (this can also be done through the web app):
 ```bash
 python manage.py add_account --number AWSaccountID --name AccountName
 ```
+- Each time you add an account securitymonkeyscheduler has to be restarted manually:
+```bash
+$ sudo supervisorctl
+supervisor> restart securitymonkeyscheduler
+```
+- If you haven't set up the email configuration properly at deployment you can do it by editing /usr/local/src/security_monkey/env-config/config-deploy.py and then restarting supervisor.
+```bash
+$ sudo service supervisor restart
+```
+- Security Monkey logs are in /var/log/security_monkey
+- Supervisor logs are in /var/log/supervisor 
 
 ## Production considerations
 

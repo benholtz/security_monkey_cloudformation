@@ -577,7 +577,7 @@
 								"sudo sed -i s/\\<INSERT_RANDOM_STRING_HERE\\>/$RANDOM_KEY/g /usr/local/src/security_monkey/env-config/config-deploy.py\n",
 								"sudo sed -i 's/DEBUG/", { "Ref": "SMLogLevel" }, "/g' /usr/local/src/security_monkey/env-config/config-deploy.py\n",
 								"sudo sed -i 's/securitymonkey@example.com/", { "Ref": "SMMailDefaultSender" }, "/g' /usr/local/src/security_monkey/env-config/config-deploy.py\n",
-								"sudo sed -i 's/SECURITY_TEAM_EMAIL\\ =\\ \\[\\]/SECURITY_TEAM_EMAIL\\ \\=\\ \\[\\ ",{ "Ref": "SMSecurityTeamEmail" },"\\ \\]/g' /usr/local/src/security_monkey/env-config/config-deploy.py\n",
+								"sudo sed -i 's/SECURITY_TEAM_EMAIL\\ =\\ \\[\\]/SECURITY_TEAM_EMAIL\\ \\=\\ \\[\\ \"",{ "Ref": "SMSecurityTeamEmail" },"\"\\ \\]/g' /usr/local/src/security_monkey/env-config/config-deploy.py\n",
 								"sudo sed -i 's/EMAILS_USE_SMTP = False/EMAILS_USE_SMTP = ", { "Ref": "SMUseSMTP" }, "/g' /usr/local/src/security_monkey/env-config/config-deploy.py\n",
 								"sudo sed -i 's/smtp.example.com/", { "Ref": "SMMailServer" }, "/g' /usr/local/src/security_monkey/env-config/config-deploy.py\n",
 								"sudo sed -i 's/465/", { "Ref": "SMMailPort" }, "/g' /usr/local/src/security_monkey/env-config/config-deploy.py\n",

@@ -73,7 +73,7 @@ supervisor> restart securitymonkeyscheduler
 $ sudo service supervisor restart
 ```
 - Security Monkey logs are in /var/log/security_monkey
-- Supervisor logs are in /var/log/supervisor 
+- Supervisor logs are in /var/log/supervisor
 
 ## Production considerations
 
@@ -86,5 +86,5 @@ $ sudo service supervisor restart
 ## Additional information
 - For more information about Security Monkey please refer to the official documentation site: http://securitymonkey.readthedocs.io/en/latest/
 
-## Note:
+## Thanks
 Part of this template is inspired on another template from https://github.com/trumant/securitymonkey_cloudformation but updated without using Ruby and with few more options in order to allow Security Monkey configuration from the template deployment form.

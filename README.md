@@ -49,7 +49,7 @@ To customize the security profile of your stack, also override the default value
 
 ## After deployment steps
 
-- SSH to your Security Monkey Server and add your admin user using the console tool.
+- SSH to your Security Monkey Server and add your admin user using the Security Monkey manage.py tool.
 - Add an admin user to Security Monkey:
 ```bash
 export SECURITY_MONKEY_SETTINGS=/usr/local/src/security_monkey/env-config/config-deploy.py

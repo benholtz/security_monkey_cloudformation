@@ -217,6 +217,8 @@
 					]
 				},
 				"InstanceTenancy": "default",
+				"EnableDnsSupport" : "true",
+				"EnableDnsHostnames" : "true",
 				"Tags": [{
 					"Key": "Name",
 					"Value": "SecurityMonkeyVPC"
@@ -260,25 +262,6 @@
 				}],
 				"AvailabilityZone": {
 					"Ref": "AZ1"
-				}
-			}
-		},
-		"NetworkAcl": {
-			"Type": "AWS::EC2::NetworkAcl",
-			"Properties": {
-				"VpcId": {
-					"Ref": "VPC"
-				}
-			}
-		},
-		"AssociateNetworkAcl": {
-			"Type": "AWS::EC2::SubnetNetworkAclAssociation",
-			"Properties": {
-				"NetworkAclId": {
-					"Ref": "NetworkAcl"
-				},
-				"SubnetId": {
-					"Ref": "SecurityMonkeySubnet"
 				}
 			}
 		},

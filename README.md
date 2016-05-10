@@ -1,14 +1,14 @@
 # SecurityMonkey AWS CloudFormation Template
 
-Stand up an AWS CloudFormation stack running [SecurityMonkey](https://github.com/Netflix/security_monkey)
+Stand up an AWS CloudFormation stack running [SecurityMonkey](https://github.com/Netflix/security_monkey) v0.5.0 (2016-04-26)
 
 This CloudFormation stack creates a single EC2 instance in a public subnet of a VPC, running SecurityMonkey and storing data in an Postgresql RDS DB in MultiAZ configuration. Both the EC2 instance and RDS db will be created and configured with security groups. A VPC and subnets will be also created.
 
 ## AWS resources it creates
--VPC with a public subnet in AZ1 and 2 RDS subnets in AZ1 and AZ2.
--An EC2 instance with Security Monkey installed: you can see all steps to install Security Monkey in the template, a self signed SSL certificate is created as part of the insallation script.
--RDS Postgresql MultiAZ instance
--Security Group for Security Monkey Server allowing SSH and HTTPS traffic from the specified network at deployment time. Another SG for RDS to allow the EC2 instance talk to the RDS instance.
+- VPC with a public subnet in AZ1 and 2 RDS subnets in AZ1 and AZ2.
+- An EC2 instance with Security Monkey installed: you can see all steps to install Security Monkey in the template, a self signed SSL certificate is created as part of the insallation script.
+- RDS Postgresql MultiAZ instance
+- Security Group for Security Monkey Server allowing SSH and HTTPS traffic from the specified network at deployment time. Another SG for RDS to allow the EC2 instance talk to the RDS instance.
 
 
 This template downloads, installs and configures Security Monkey (master branch) and all its dependences on top of an official Ubuntu 14.04LTS AMI.

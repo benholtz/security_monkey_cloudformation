@@ -19,6 +19,7 @@ This template downloads, installs and configures Security Monkey (master branch)
 - Access to the the AWS Admin Console UI.
 - Key to deploy EC2 instances
 - Preconfigured SecurityMonkeyInstanceProfile role. Follow all of these instructions: https://github.com/Netflix/security_monkey/blob/master/docs/quickstart.rst#setup-iam-roles
+- Accept the Ubuntu terms and conditions in AWS Marketplace here http://aws.amazon.com/marketplace/pp?sku=b3dl4415quatdndl4qa6kcu45
 
 ## Stack Parameters
 

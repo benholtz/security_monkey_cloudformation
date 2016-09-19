@@ -535,7 +535,7 @@
 								"sudo touch /var/log/security_monkey/security_monkey.error.log\n",
 								"sudo touch /var/log/security_monkey/security_monkey.access.log\n",
 								"sudo touch /var/log/security_monkey/security_monkey-deploy.log\n",
-								"sudo chown www-data /var/log/security_monkey/security_monkey-deploy.log\n",
+								"sudo chown www-data /var/log/security_monkey/*.log\n",
 								"cd /usr/local/src\n",
 								"sudo git clone --depth 1 --branch master https://github.com/Netflix/security_monkey.git\n",
 								"cd security_monkey\n",
@@ -586,6 +586,7 @@
 								"export SECURITY_MONKEY_SETTINGS=/usr/local/src/security_monkey/env-config/config-deploy.py\n",
 								"cd /usr/local/src/security_monkey/\n",
 								"sudo -E python manage.py db upgrade\n",
+								"sudo chown www-data /var/log/security_monkey/securitymonkey.log\n",
 								"sudo cp /usr/local/src/security_monkey/supervisor/security_monkey.conf /etc/supervisor/conf.d/security_monkey.conf\n",
 								"sudo service supervisor restart\n",
 								"cd ~\n",
@@ -643,45 +644,54 @@
 		}
   },
 	"Outputs": {
-      "SecurityMonkeyInformation": {
-        "Description": "For SSH access jump to the SecurityMonkey EC2 instance using your provided key and with user ubuntu and follow the after installation steps, for web access go to the server name with HTTPS.",
-          "Value": {
-						"Fn::GetAtt": [
-							"SecurityMonkeyServer",
-							"PublicDnsName"
-						]
-				}
-      },
-			"DatabaseAddress": {
-				"Value": {
-					"Fn::GetAtt": [
-						"SecurityMonkeyRDS",
-						"Endpoint.Address"
-					]
-				}
-			},
-			"DatabaseName": {
-				"Value": {
-					"Ref": "RDSDBName"
-				}
-			},
-			"DatabaseUserName": {
-				"Value": {
-					"Ref": "RDSUsername"
-				}
-			},
-			"DatabasePassword": {
-				"Value": {
-					"Ref": "RDSPassword"
-				}
-			},
-			"DatabasePort": {
-				"Value": {
-					"Fn::GetAtt": [
-						"SecurityMonkeyRDS",
-						"Endpoint.Port"
-					]
-				}
+		"SecurityMonkeyServerOutput": {
+			"Description": "Web access to Security Monkey:",
+			"Value": {
+				"Fn::Join": [
+					"", ["https://", {
+						"Fn::GetAtt": ["SecurityMonkeyServer", "PublicDnsName"]
+					}, "/"]
+				]
 			}
+		},
+    "SecurityMonkeyInformation": {
+      "Description": "For SSH access (use your provided key and user ubuntu)",
+        "Value": {
+					"Fn::GetAtt": [	"SecurityMonkeyServer", "PublicDnsName"	]
+			}
+    },
+		"SecurityMonkeyNextStep": {
+      "Description": "Add your first user and AWS accounts following this instructions",
+        "Value": {
+					"Fn::Join": [
+						"", [ "http://securitymonkey.readthedocs.io/en/latest/quickstart.html#add-amazon-accounts"]
+					]
+				}
+    },
+		"DatabaseAddress": {
+			"Value": {
+				"Fn::GetAtt": [	"SecurityMonkeyRDS", "Endpoint.Address"	]
+			}
+		},
+		"DatabaseName": {
+			"Value": {
+				"Ref": "RDSDBName"
+			}
+		},
+		"DatabaseUserName": {
+			"Value": {
+				"Ref": "RDSUsername"
+			}
+		},
+		"DatabasePassword": {
+			"Value": {
+				"Ref": "RDSPassword"
+			}
+		},
+		"DatabasePort": {
+			"Value": {
+				"Fn::GetAtt": [ "SecurityMonkeyRDS", "Endpoint.Port" ]
+			}
+		}
 	}
 }

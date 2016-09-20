@@ -1,6 +1,6 @@
 # SecurityMonkey AWS CloudFormation Template
 
-Stand up an AWS CloudFormation stack running [SecurityMonkey](https://github.com/Netflix/security_monkey) v0.5.0 (2016-04-26)
+Stand up an AWS CloudFormation stack running [SecurityMonkey](https://github.com/Netflix/security_monkey) v0.6.0 (2016-08-29)
 
 This CloudFormation stack creates a single EC2 instance in a public subnet of a VPC, running SecurityMonkey and storing data in an Postgresql RDS DB in MultiAZ configuration. Both the EC2 instance and RDS db will be created and configured with security groups. A VPC and subnets will be also created.
 

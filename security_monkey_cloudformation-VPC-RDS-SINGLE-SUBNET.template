@@ -160,34 +160,40 @@
 	"Mappings": {
 		"LINUXAMI": {
 			"us-east-1": {
-				"AMI": "ami-663a6e0c"
+				"AMI": "ami-72343365"
+			},
+			"us-east-2": {
+				"AMI": "ami-88b6eced"
 			},
 			"us-west-1": {
-				"AMI": "ami-b885eed8"
+				"AMI": "ami-27bdea47"
 			},
 			"us-west-2": {
-				"AMI": "ami-13988772"
+				"AMI": "ami-5156fe31"
 			},
 			"eu-west-1": {
-				"AMI": "ami-b265c7c1"
+				"AMI": "ami-3cbae14f"
 			},
 			"eu-central-1": {
-				"AMI": "ami-ad8894c1"
+				"AMI": "ami-51db1d3e"
 			},
 			"ap-southeast-1": {
-				"AMI": "ami-2855964b"
+				"AMI": "ami-f0a90593"
 			},
 			"ap-southeast-2": {
-				"AMI": "ami-d19fc4b2"
+				"AMI": "ami-33724a50"
 			},
 			"ap-northeast-1": {
-				"AMI": "ami-575b6e39"
+				"AMI": "ami-db06b4ba"
 			},
 			"ap-northeast-2": {
-				"AMI": "ami-f0ac629e"
+				"AMI": "ami-1f2ef971"
 			},
 			"sa-east-1": {
-				"AMI": "ami-4196112d"
+				"AMI": "ami-9a851cf6"
+			},
+			"ca-central-1": {
+				"AMI": "ami-374dff53"
 			}
 		},
 		"SubnetConfig": {

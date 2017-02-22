@@ -1,6 +1,6 @@
 {
 	"AWSTemplateFormatVersion": "2010-09-09",
-	"Description": "AWS CloudFormation Template for Security Monkey (master branch code / v0.5.0 (2016-04-26)). With EC2 instance, Multi AZ RDS Postgres database, Security group, it creates a VPC and all needed subnets",
+	"Description": "AWS CloudFormation Template for Security Monkey (master branch code / v0.8.0 (2017-02-21)). With EC2 instance, Multi AZ RDS Postgres database, Security group, it creates a VPC and all needed subnets",
 	"Parameters": {
 		"AZ1": {
 			"Type": "AWS::EC2::AvailabilityZone::Name",
@@ -160,40 +160,43 @@
 	"Mappings": {
 		"LINUXAMI": {
 			"us-east-1": {
-				"AMI": "ami-72343365"
+				"AMI": "ami-2d57433a"
 			},
 			"us-east-2": {
 				"AMI": "ami-88b6eced"
 			},
 			"us-west-1": {
-				"AMI": "ami-27bdea47"
+				"AMI": "ami-e7277687"
 			},
 			"us-west-2": {
-				"AMI": "ami-5156fe31"
+				"AMI": "ami-900ebaf0"
 			},
 			"eu-west-1": {
-				"AMI": "ami-3cbae14f"
+				"AMI": "ami-75c9e906"
 			},
 			"eu-central-1": {
-				"AMI": "ami-51db1d3e"
+				"AMI": "ami-162ded79"
 			},
 			"ap-southeast-1": {
-				"AMI": "ami-f0a90593"
+				"AMI": "ami-96d17ff5"
 			},
 			"ap-southeast-2": {
-				"AMI": "ami-33724a50"
+				"AMI": "ami-c6c2f9a5"
 			},
 			"ap-northeast-1": {
-				"AMI": "ami-db06b4ba"
+				"AMI": "ami-90117af7"
 			},
 			"ap-northeast-2": {
-				"AMI": "ami-1f2ef971"
+				"AMI": "ami-d1a274bf"
 			},
 			"sa-east-1": {
-				"AMI": "ami-9a851cf6"
+				"AMI": "ami-707ce41c"
 			},
 			"ca-central-1": {
 				"AMI": "ami-374dff53"
+			},
+			"ap-south-1": {
+				"AMI": "ami-dac6b1b5"
 			}
 		},
 		"SubnetConfig": {
@@ -552,7 +555,7 @@
 								"curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > dart_stable.list\n",
 								"sudo mv dart_stable.list /etc/apt/sources.list.d/dart_stable.list\n",
 								"sudo apt-get update\n",
-								"sudo apt-get install -y dart=1.12.2-1\n",
+								"sudo apt-get install -y dart\n",
 								"cd /usr/local/src/security_monkey/dart\n",
 								"sudo /usr/lib/dart/bin/pub get\n",
 								"sudo /usr/lib/dart/bin/pub build\n",

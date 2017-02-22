@@ -517,7 +517,7 @@
 								"sudo apt-get -y upgrade\n",
 								"sudo apt-get install -y python-pip python-dev python-psycopg2 libpq-dev nginx supervisor git libffi-dev\n",
 								"sudo pip install --upgrade ndg-httpsclient\n",
-								"/usr/bin/easy_install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz || sleep 5\n",
+								"sudo pip install aws-cfn-bootstrap\n",
 								"/usr/local/bin/cfn-init",
 								"    --stack ", {
 									"Ref": "AWS::StackName"
